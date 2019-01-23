@@ -1,0 +1,32 @@
+{
+  "name": "baidu2wxapp",
+  "version": "1.0.1",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "linebyline": "^1.3.0",
+    "babel-core": "^6.26.0",
+    "ast-traverse": "^0.1.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+  },
+  "bin": {
+    "baidu2wxapp": "index.js"
+  },
+  "description": "百度小程序转微信小程序工具",
+  "keywords": [
+    "wxmp",
+    "wxapp",
+    "amp",
+    "antmp"
+  ],
+  "homepage": "https://github.com/kujian/baidu2wxapp",
+  "bugs": {
+    "url": "https://github.com/kujian/baidu2wxapp/issues"
+  },
+  "main": "index.js",
+  "devDependencies": {
+    "ast-traverse": "^0.1.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+  }
+}
