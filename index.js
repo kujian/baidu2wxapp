@@ -73,6 +73,8 @@ const config = {
     toMethods: [],
     JSRegexp: [],
     JSToRegexp: [],
+    WXSRegexp: [],
+    WXSToRegexp: [],
     AXMLRegexp: [],
     AXMLToRegexp: [],
 	JSONRegexp:[],
@@ -91,6 +93,8 @@ rl
             if ("JSmethod" === line) {
                 state = line
             } else if ("JS" === line) {
+                state = line
+            } else if ("WXS" === line) {
                 state = line
             } else if ("AXML" === line) {
                 state = line
@@ -112,8 +116,13 @@ rl
             let aTob = line.split("--->");
             addUpdateMethods(aTob[0], aTob[1]);
         } else if ("JS" === state) {
+            console.log("JS文件替换");
             let aTob = line.split("--->");
             addJSRegexp(aTob[0], aTob[1]);
+        } else if ("WXS" === state) {
+            console.log("WXS替换");
+            let aTob = line.split("--->");
+            addWXSRegexp(aTob[0], aTob[1]);
         } else if ("AXML" === state) {
             let aTob = line.split("--->");
             addAXMLRegexp(aTob[0], aTob[1]);
@@ -184,6 +193,16 @@ function addJSRegexp(suffix, toSuffix) {
 function clearJSRegexp() {
     config.JSRegexp = [];
     config.JSToRegexp = [];
+}
+
+function addWXSRegexp(suffix, toSuffix) {
+    config.WXSRegexp.push(suffix);
+    config.WXSToRegexp.push(toSuffix || "");
+}
+
+function clearWXSRegexp() {
+    config.WXSRegexp = [];
+    config.WXSToRegexp = [];
 }
 
 // ----------------------------------- amxl要更新的正则表达式
@@ -374,6 +393,20 @@ function wx2ant(file) {
             console.log(e)
             console.log("转换js文件出错：" + file);
         }
+    }else if (path.extname(file) === ".wxs") {
+        let WXSRegexp = config.WXSRegexp;
+        let WXSToRegexp = config.WXSToRegexp;
+        try {
+            let content = fs.readFileSync(file, "utf8");
+            for (let i in WXSRegexp) {// 修改不一样的方法
+                content = content.replace(new RegExp(WXSRegexp[i], "g"), WXSToRegexp[i]);
+            }
+            fs.writeFileSync(file, content);
+            console.log("转换wxs文件：" + file);
+        } catch (e) {
+            console.log(e)
+            console.log("转换wxs文件出错：" + file);
+        }
     } else if (path.extname(file) === ".wxml") {
         let AXMLRegexp = config.AXMLRegexp;
         let AXMLToRegexp = config.AXMLToRegexp;
@@ -409,6 +442,20 @@ function wx2ant(file) {
             let content = fs.readFileSync(file, "utf8");
             for (let i in ACSSRegexp) {// 修改不一样的方法
                 content = content.replace(new RegExp(ACSSRegexp[i], "g"), ACSSToRegexp[i]);
+            }
+            fs.writeFileSync(file, content);
+            console.log("转换acss文件：" + file);
+        } catch (e) {
+            console.log(e)
+            console.log("转换acss文件出错：" + file);
+        }
+    }else if (path.extname(file) === ".wxs") {
+        let WXSRegexp = config.WXSRegexp;
+        let WXSToRegexp = config.WXSToRegexp;
+        try {
+            let content = fs.readFileSync(file, "utf8");
+            for (let i in WXSRegexp) {// 修改不一样的方法
+                content = content.replace(new RegExp(WXSRegexp[i], "g"), WXSToRegexp[i]);
             }
             fs.writeFileSync(file, content);
             console.log("转换acss文件：" + file);
