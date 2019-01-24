@@ -36,12 +36,12 @@
 多发生在js文件中。
 
 ## 文件: 
-	node
-	  --baidu2wxapp.txt //配置
- 	  --package.json
-	  --index.js //源码
-	  lib
-        --JSApiPropReplace.js //api属性替换
+	
+	baidu2wxapp.txt //配置
+ 	package.json
+	ndex.js //源码
+	lib
+    	--JSApiPropReplace.js //api属性替换
 
 [点击进入github](https://github.com/kujian/baidu2wxapp "baidu2wxapp转换")
 
