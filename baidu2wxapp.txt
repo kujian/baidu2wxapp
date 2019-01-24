@@ -6,7 +6,7 @@
 转换文件的目录 ***记得需要进行修改***
 -----------------
 DIR
-	E:\work\2019\apptools\pchouse_bd_info-wx8
+	E:\work\2019\apptools\pconline_baidu-wx3
 end
 -----------------
 js函数名的替换
@@ -20,8 +20,8 @@ js中的函数参数的替换
 -----------------
 JS
 	swan\.--->wx.
-	\.route--->.__route__
-	\.getExtConfigSync()\.extConfig--->.getExtConfigSync()
+	\.route--->.__route__ # swan.route -> wx.__route__
+	\.getExtConfigSync()\.extConfig--->.getExtConfigSync() 
 	swan:--->wx:
 end
 -----------------
@@ -41,9 +41,9 @@ AXML
 	\.swan--->.wxml
 	\ss\-else---> wx:else
 	\ss\-key---> wx:key
-	{{{(.*?)}}}--->{{$1}}
-	swan:--->wx:
-	<filter(.*?)src=(.*)filter\.js(.*?)>(.*?)</filter>---><wxs$1src=$2filter.wxs$3>$4</wxs>
+	{{{(.*?)}}}--->{{$1}} # template 里面的data对象字面量
+	swan:--->wx: # swan://component-export-> wx://component-export, swan://form-field -> wx://form-field
+	<filter(.*?)src=(.*)filter\.js(.*?)>(.*?)</filter>---><wxs$1src=$2filter.wxs$3>$4</wxs> # filter -> wxs
 	<filter(.*?)>(.*?)</filter>---><wxs$1>$2</wxs>
 end
 -----------------
@@ -62,16 +62,12 @@ end
 js中的api参数对象的的属性名称替换
 -----------------
 JS_API_PROP_REPLACE
-	PRO: #api名称
-		showToast #showToast中的title
-	KEYS: #替换的属性名对
-		title--->content
-		icon--->type
+	# PRO: #api名称
+		# showToast #showToast中的title
+	# KEYS: #替换的属性名对
+		# title--->content
+		# icon--->type
 	#==========================================
-	PRO: 
-		showLoading #显示加载框
-	KEYS: 
-		title--->content
 end
 
 OVER
