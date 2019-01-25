@@ -36,6 +36,7 @@ axml中的内容替换
 AXML
 	\ss\-(if|else|elif|for|for\-items)=(["'])\{\{(.*?)\}\}---> s-$1=$2$3
 	\ss\-for=(["'])((.*?)\s*,\s*(.*?)\s+in\s+(.*?))\1---> wx:for="{{$5}}" wx:for-item="$3" wx:for-index="$4"
+	\ss\-for=(["'])(([a-zA-Z0-9_\-]*?)\s+in\s+(.*?))\1---> wx:for="{{$4}}" wx:for-item="$3" #s-for="item in list" 
 	\ss\-(if|else|elif|for|for\-items)=(["'])(.*?)\2---> wx:$1="{{$3}}"
 	{=(.*?)=}--->{{$1}}
 	\.swan--->.wxml
