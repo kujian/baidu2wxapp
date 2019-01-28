@@ -2,6 +2,8 @@
 
 参考：[https://github.com/foxitdog/wx2ali](https://github.com/foxitdog/wx2ali)，感谢作者的付出。
 
+关于微信小程序和百度小程序的区分可以看我的博客详细介绍：[http://caibaojian.com/baiduapp-vs-weixinapp.html](http://caibaojian.com/baiduapp-vs-weixinapp.html "百度小程序与微信小程序全面对比")
+
 ### 说明：
 
 这是一个将百度小程序中的大多数与微信小程序功能相关，格式相似的api与属性转化为微信小程序的格式
@@ -43,7 +45,7 @@
 	lib
     	--JSApiPropReplace.js //api属性替换
 
-[点击进入github](https://github.com/kujian/baidu2wxapp "baidu2wxapp转换")
+[github项目源码](https://github.com/kujian/baidu2wxapp "baidu2wxapp转换")
 
 ## 转换原则: 
 
@@ -57,3 +59,5 @@
 ## 更新: 
 	1.03 增加将百度filter.js转为wxs文件，并替换导出语法。
 	1.05 修复s-for="item in obj"匹配
+
+我的博客：[http://caibaojian.com](http://caibaojian.com)
